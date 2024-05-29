@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["package.json", "src/**/*.ts", "bin/**/*.ts"],
+  "exclude": [
+    "jest.config.ts",
+    "dist/**/*.js",
+    "example/*",
+    "src/__tests__/**/*.ts",
+    "**/*.spec.verify.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "coverage"
+  ]
+}

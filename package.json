@@ -1,10 +1,20 @@
 {
-  "name": "doc-extractor",
+  "name": "example-extractor",
   "version": "0.0.1",
+  "type": "module",
   "description": "Extract documentation examples from real source code",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
+  "bin": {
+    "example-extractor": "example-extractor.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf {dist,package} && tsc --project tsconfig.build.json",
+    "lint": "eslint src --ext .ts --config .eslintrc.json",
+    "lint:fix": "eslint src --fix --ext .ts --config .eslintrc.json",
+    "format:base": "prettier --parser typescript \"src/**/*.ts\"",
+    "format:check": "npm run format:base -- --list-different",
+    "format:fix": "npm run format:base -- --write "
   },
   "repository": {
     "type": "git",
@@ -24,6 +34,13 @@
     "@contract-case/case-maintainer-config": "^0.0.4",
     "@contract-case/eslint-config-case-maintainer": "^0.1.0",
     "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "mkdirp": "^3.0.1",
+    "sanitize-filename": "^1.6.3"
   }
 }
