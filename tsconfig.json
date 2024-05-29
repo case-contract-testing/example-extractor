@@ -2,11 +2,11 @@
   "extends": "@contract-case/case-maintainer-config/tsconfig.json",
   "type": "module",
   "compilerOptions": {
+    "composite": false,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "dist/",
-    "rootDir": "."
+    "outDir": "dist/"
   },
-  "include": ["package.json", "src/**/*.ts", "bin", "example-extractor.js"],
+  "include": ["src/**/*.ts"],
   "exclude": ["jest.config.ts", "dist/**/*.js", "coverage", "dist"]
 }

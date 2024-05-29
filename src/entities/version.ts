@@ -1,3 +1,11 @@
-import packageJson from '../../package.json' with { type: 'json' };
+import { readPackageUpSync } from 'read-package-up';
 
-export const version: string = `${packageJson.name ?? 'Unknown-Package'}@${packageJson.version ?? 'Unknown-Version'}`;
+const maybePackageJson = readPackageUpSync();
+
+export const version: string = maybePackageJson
+  ? maybePackageJson.packageJson.version
+  : 'UNKNOWN VERSION OF EXAMPLE EXTRACTOR';
+
+export const nameAndVersion = maybePackageJson
+  ? `${maybePackageJson.packageJson.name}@${maybePackageJson.packageJson.version}`
+  : 'UNKNOWN VERSION OF EXAMPLE EXTRACTOR';

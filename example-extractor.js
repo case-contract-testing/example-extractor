@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { main } from './dist/src/index.js';
+import { cli } from './dist/cli.js';
 
-const rootPath = '.';
-main({ searchPath: rootPath, outputBasePath: 'output' });
+cli();

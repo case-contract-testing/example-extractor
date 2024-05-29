@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "description": "Extract documentation examples from real source code",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "bin": {
     "example-extractor": "example-extractor.js"
   },
@@ -24,7 +24,11 @@
     "documentation",
     "examples"
   ],
-  "author": "Timothy Jones",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/TimothyJones"
+  },
+  "author": "Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/case-contract-testing/doc-extractor/issues"
@@ -40,7 +44,9 @@
   },
   "dependencies": {
     "chalk": "^5.3.0",
+    "commander": "^12.1.0",
     "mkdirp": "^3.0.1",
+    "read-package-up": "^11.0.0",
     "sanitize-filename": "^1.6.3"
   }
 }

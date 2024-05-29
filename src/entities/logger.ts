@@ -1,6 +1,7 @@
 import { Console } from 'node:console';
 import chalk from 'chalk';
-import { version } from './version.js';
+import { nameAndVersion } from './version.js';
+import { ExtractorError } from './ExtractorError.js';
 
 const stdout = new Console({ stdout: process.stdout });
 
@@ -8,8 +9,12 @@ export type LogLevel = 'none' | 'error' | 'warn' | 'debug' | 'info';
 
 let currentLevel: LogLevel = 'debug';
 
-export const setLogLevel = (level: LogLevel): void => {
-  currentLevel = level;
+export const ALL_LOG_LEVELS: Record<LogLevel, boolean> = {
+  none: true,
+  error: true,
+  warn: true,
+  debug: true,
+  info: true,
 };
 
 export interface Logger {
@@ -52,7 +57,7 @@ const getColours = (level: LogLevel) => {
 
 const formatMessage = (level: LogLevel, message: string) => {
   const { typeColour, messageColour } = getColours(level);
-  return `${chalk.whiteBright(version)} ${typeColour(
+  return `${chalk.whiteBright(nameAndVersion)} ${typeColour(
     level.toUpperCase(),
   )}: ${messageColour(message)}`;
 };
@@ -98,4 +103,15 @@ export const logger: Logger = {
       printLog('error', message, ...additional);
     }
   },
+};
+
+export const setLogLevel = (printableLevel: LogLevel): void => {
+  const newLevel = printableLevel.toLowerCase() as LogLevel;
+  if (!ALL_LOG_LEVELS[newLevel]) {
+    logger.error(
+      `The log level '${printableLevel}' is not a valid log level. Please use one of: ${Object.keys(ALL_LOG_LEVELS).join(', ')}`,
+    );
+    throw new ExtractorError(`Invalid log level specified: ${printableLevel}`);
+  }
+  currentLevel = newLevel;
 };
