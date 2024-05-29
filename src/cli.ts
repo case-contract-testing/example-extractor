@@ -7,13 +7,13 @@ export const cli = (): void => {
   program
     .name('example-extractor')
     .requiredOption(
-      '-i, --input',
+      '-i, --input <path>',
       'Base path to recursively search source files',
       (t) => t,
       defaultConfig.searchPath,
     )
     .requiredOption(
-      '-o, --output',
+      '-o, --output <path>',
       'Base path where extracted examples will be written',
       defaultConfig.outputBasePath,
     )
@@ -28,7 +28,7 @@ export const cli = (): void => {
       defaultConfig.excludeEndings,
     )
     .requiredOption(
-      '-l, --log-level',
+      '-l, --log-level <level>',
       `Set log level to one of 'debug', 'warn', 'error', 'info', 'none'`,
       defaultConfig.logLevel,
     )
