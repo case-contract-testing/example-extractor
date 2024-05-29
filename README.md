@@ -2,6 +2,9 @@
 
 > Extract documentation examples from real source code
 
+[![Build + test](https://github.com/case-contract-testing/example-extractor/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/case-contract-testing/example-extractor/actions/workflows/build-and-test.yml)
+[![npm](https://img.shields.io/npm/v/example-extractor.svg)](https://www.npmjs.com/package/example-extractor)
+
 ## Overview
 
 `example-extractor` is a command-line interface (CLI) tool designed to extract documentation examples directly from source files. This tool helps you automate the process of collecting code examples, making it easier to generate documentation or create educational material.
