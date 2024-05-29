@@ -68,6 +68,12 @@ function maxArray(arr: number[]): number {
 
 By using `example-extractor`, you can easily maintain and manage code examples for documentation purposes, ensuring that your examples are always up-to-date with your source code.
 
+### Clearing the examples directory
+
+Since we want the examples to be fresh each time, example-extractor expects an empty directory. To help you remember this, it will fail if it tries to overwrite an example.
+
+We recommend clearing out your examples directory each time using something like [rimraf](https://www.npmjs.com/package/rimraf).
+
 ## Usage
 
 ```sh
