@@ -33,7 +33,7 @@ const writeFileExclusive = (
 };
 
 const cleanName = (example: Example, printer: Printer) => {
-  const extension = `${printer.extension.startsWith('.') ? '' : '.'}${printer.extension}`;
+  const extension = `${example.context.extension}${printer.extension.startsWith('.') ? '' : '.'}${printer.extension}`;
   const sanitisedName = sanitize(`${example.name}${extension}`);
   if (sanitisedName === extension) {
     const message = `${example.context.fullPath}: After sanitisation, the example named '${sanitisedName}' was an empty string. You will need to rename it`;

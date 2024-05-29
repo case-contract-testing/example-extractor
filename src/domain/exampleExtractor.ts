@@ -32,7 +32,7 @@ export const extractExampleSections = (
 
     if (partialExample === undefined && startMatch) {
       partialExample = {
-        name: startMatch[2] || `${context.filename}-${count}`,
+        name: startMatch[2] || `${context.basename}-${count}`,
         lines: [],
       };
       count += 1;

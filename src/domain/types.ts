@@ -1,4 +1,5 @@
 export interface ExampleLocation {
+  basename: string;
   filename: string;
   extension: string;
   fullPath: string;

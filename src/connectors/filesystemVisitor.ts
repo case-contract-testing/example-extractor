@@ -67,6 +67,7 @@ export const createFileContentsVisitor =
         }
         logger.debug(`Successfully read file contents: ${filePath}`);
         visitor(fileContents, {
+          basename: path.basename(filePath, path.extname(filePath)),
           filename: path.basename(filePath),
           extension: path.extname(filePath),
           fullPath: filePath,
