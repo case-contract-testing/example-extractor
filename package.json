@@ -1,6 +1,6 @@
 {
   "name": "example-extractor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "description": "Extract documentation examples from real source code",
   "main": "dist/index.js",
