@@ -64,6 +64,16 @@ export const extractExampleSections = (
       }
     }
   });
+
+  // An in-progress example is also terminated by the end of the file
+  if (partialExample !== undefined) {
+    sections.push({
+      name: partialExample.name,
+      contents: partialExample.lines.join('\n'),
+      context,
+    });
+  }
+
   // end-example
   if (sections.length === 0) {
     logger.debug(`No example sections in ${context.fullPath}`);
