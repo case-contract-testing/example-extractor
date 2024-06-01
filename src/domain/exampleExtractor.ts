@@ -3,11 +3,17 @@ import { Example, ExampleLocation } from './types.js';
 
 const START_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*example-extract\s*(\w+.\w+)?/;
 const END_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*end-example/;
+const START_IGNORE_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*ignore-extract/;
+const END_IGNORE_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*end-ignore/;
 
 // example-extract partial-example
 interface PartialExample {
+  // The name of this example
   name: string;
+  // The lines of this example
   lines: string[];
+  // Whether we're currently ignoring lines
+  ignoring: boolean;
 }
 // end-example
 
@@ -34,6 +40,7 @@ export const extractExampleSections = (
       partialExample = {
         name: startMatch[2] || `${context.basename}-${count}`,
         lines: [],
+        ignoring: false,
       };
       count += 1;
     } else if (partialExample !== undefined) {
@@ -44,6 +51,14 @@ export const extractExampleSections = (
           context,
         });
         partialExample = undefined;
+        return;
+      }
+      if (partialExample.ignoring) {
+        if (END_IGNORE_REGEX.exec(line)) {
+          partialExample.ignoring = false;
+        }
+      } else if (START_IGNORE_REGEX.exec(line)) {
+        partialExample.ignoring = true;
       } else {
         partialExample.lines.push(line);
       }

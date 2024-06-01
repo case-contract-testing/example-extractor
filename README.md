@@ -51,6 +51,8 @@ function sumArray(arr: number[]): number {
 ```
 ````
 
+By using `example-extractor`, you can easily maintain and manage code examples for documentation purposes, ensuring that your examples are always up-to-date with your source code.
+
 ### Example Usage in Source Files
 
 You can have multiple examples in your source files. Each example should have a unique name:
@@ -69,7 +71,39 @@ function maxArray(arr: number[]): number {
 // end-example
 ```
 
-By using `example-extractor`, you can easily maintain and manage code examples for documentation purposes, ensuring that your examples are always up-to-date with your source code.
+### Ignoring lines
+
+Sometimes you want to exclude some code that needs to be there for your example to compile.
+If you'd like to exclude some lines in your examples, you can turn off extraction during an example with `ignore-extract` and `end-ignore`:
+
+```typescript
+// example-extract general
+function reduceNumbers(arr: number[]): number {
+  return arr.reduce(
+    /* your function goes here */
+    // ignore-example
+    (sum, current) => {
+      return sum + current;
+    },
+    // end-ignore
+    0,
+  );
+}
+// end-example
+```
+
+This would result in the following extraction:
+
+````markdown
+```ts
+function reduceNumbers(arr: number[]): number {
+  return arr.reduce(
+    /* your function goes here */
+    0,
+  );
+}
+```
+````
 
 ### Clearing the examples directory
 
