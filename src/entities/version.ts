@@ -1,11 +1,11 @@
-import { readPackageUpSync } from 'read-package-up';
+import { createRequire } from 'module';
 
-const maybePackageJson = readPackageUpSync();
+const PackageJson = createRequire(import.meta.url)('../../package.json');
 
-export const version: string = maybePackageJson
-  ? maybePackageJson.packageJson.version
-  : 'UNKNOWN VERSION OF EXAMPLE EXTRACTOR';
+export const version: string =
+  PackageJson.version ?? 'UNKNOWN VERSION OF EXAMPLE EXTRACTOR';
 
-export const nameAndVersion = maybePackageJson
-  ? `${maybePackageJson.packageJson.name}@${maybePackageJson.packageJson.version}`
-  : 'UNKNOWN VERSION OF EXAMPLE EXTRACTOR';
+export const nameAndVersion =
+  PackageJson.name != null
+    ? `${PackageJson.name}@${version}`
+    : 'UNKNOWN NAME OF EXAMPLE EXTRACTOR';

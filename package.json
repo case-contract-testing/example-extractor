@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf {dist,package} && tsc --project tsconfig.build.json",
+    "build": "rimraf {dist,package,extracted-examples} && tsc --project tsconfig.build.json",
     "lint": "eslint src --ext .ts --config .eslintrc.json",
     "lint:fix": "eslint src --fix --ext .ts --config .eslintrc.json",
     "format:base": "prettier --parser typescript \"src/**/*.ts\"",
@@ -46,7 +46,6 @@
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "mkdirp": "^3.0.1",
-    "read-package-up": "^11.0.0",
     "sanitize-filename": "^1.6.3"
   }
 }
