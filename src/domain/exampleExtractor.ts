@@ -1,7 +1,7 @@
 import { logger } from '../entities/logger.js';
 import { Example, ExampleLocation } from './types.js';
 
-const START_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*example-extract\s*(\w+.\w+)?/;
+const START_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*example-extract\s*(\S+)?/;
 const END_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*end-example/;
 const START_IGNORE_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*ignore-extract/;
 const END_IGNORE_REGEX = /^\s*(\/\/|\/\*|\*|\*\/)\s*end-ignore/;
@@ -17,7 +17,7 @@ interface PartialExample {
 }
 // end-example
 
-// example-extract
+// example-extract long-name-for-example
 /**
  * Extracts {@link ExampleSection} objects from a given string that represents a
  * source file.
