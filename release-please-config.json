@@ -1,5 +1,5 @@
 {
-  "plugins": [{ "type": "node-workspace", "merge": true }],
+  "plugins": [{ "type": "node-workspace", "merge": false }],
 
   "group-pull-request-title-pattern": "chore: release ${component} ${scope} ${version}",
   "pull-request-title-pattern": "chore: release ${component} ${scope} ${version}",
