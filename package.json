@@ -37,7 +37,7 @@
   "devDependencies": {
     "@contract-case/case-maintainer-config": "^0.0.4",
     "@contract-case/eslint-config-case-maintainer": "^0.1.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.6.0",
     "prettier": "^3.3.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
