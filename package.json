@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/case-contract-testing/doc-extractor#readme",
   "devDependencies": {
-    "@contract-case/case-maintainer-config": "^0.21.0",
+    "@contract-case/case-maintainer-config": "^0.24.1",
     "@contract-case/eslint-config-case-maintainer": "^0.24.1",
     "eslint": "^9.24.0",
     "jest": "^29.7.0",
