@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
-    "commander": "^13.1.0",
+    "commander": "^14.0.0",
     "mkdirp": "^3.0.1",
     "sanitize-filename": "^1.6.3"
   }
