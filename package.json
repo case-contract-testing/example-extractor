@@ -10,6 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf {dist,package,extracted-examples} && tsc --project tsconfig.build.json",
+    "postbuild": "attw --ignore-rules cjs-resolves-to-esm --pack",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format:base": "prettier --parser typescript \"src/**/*.ts\"",
@@ -35,6 +36,7 @@
   },
   "homepage": "https://github.com/case-contract-testing/doc-extractor#readme",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
     "@contract-case/case-maintainer-config": "^0.25.2",
     "@contract-case/eslint-config-case-maintainer": "^0.24.2",
     "eslint": "^9.30.1",
