@@ -39,7 +39,7 @@
     "@arethetypeswrong/cli": "^0.18.2",
     "@contract-case/case-maintainer-config": "^0.25.2",
     "@contract-case/eslint-config-case-maintainer": "^0.25.2",
-    "eslint": "^9.30.1",
+    "eslint": "^9.31.0",
     "jest": "^30.0.3",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
