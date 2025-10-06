@@ -40,7 +40,7 @@
     "@contract-case/case-maintainer-config": "^0.27.2",
     "@contract-case/eslint-config-case-maintainer": "^0.27.2",
     "eslint": "^9.35.0",
-    "jest": "^30.1.3",
+    "jest": "^30.2.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
